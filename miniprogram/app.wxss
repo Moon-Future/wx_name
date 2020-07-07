@@ -158,6 +158,11 @@ page {
   word-break: break-all;
 }
 
+.wx-flex {
+  display: flex;
+  align-items: center;
+}
+
 .weui-cells__group_form .weui-cells__title {
   padding: 0 10px;
 }

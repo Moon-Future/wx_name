@@ -1,4 +1,13 @@
 /* miniprogram/pages/computeName/computeName.wxss */
-.weui-label {
-  width:4.1em
+.radio-grp {
+  display: flex;
+}
+
+.radio-label {
+  margin-right: 10px;
+  width: 130rpx;
+}
+
+.form-btn {
+  margin-top: 20px;
 }
