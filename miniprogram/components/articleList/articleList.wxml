@@ -1,0 +1,13 @@
+<!--components/articleList/articleList.wxml-->
+<view class="article-list">
+  <view class="article-item" wx:for="{{ list }}" wx:key="index">
+    <view class="article-text">
+      <text class="article-title">{{ item.title }}</text>
+      <view class="article-info">
+        <text class="tag">{{ item.tag }}</text>
+        <text class="time">{{ item.time }}</text>
+      </view>
+    </view>
+    <image class="article-img" src="{{ item.img }}" mode="widthFix" />
+  </view>
+</view>

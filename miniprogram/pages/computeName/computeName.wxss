@@ -1,0 +1,4 @@
+/* miniprogram/pages/computeName/computeName.wxss */
+.weui-label {
+  width:4.1em
+}

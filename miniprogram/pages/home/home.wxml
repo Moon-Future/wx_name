@@ -1,0 +1,28 @@
+<!--miniprogram/pages/home/home.wxml-->
+<view class="page">
+  <swiper indicator-dots="{{ indicatorDots }}"
+    autoplay="{{ autoplay }}" interval="{{ interval }}" duration="{{ duration }}">
+    <block wx:for="{{ background }}" wx:key="*this">
+      <swiper-item>
+        <view class="swiper-item">
+          <image class="swiper-img" src="{{ item.img }}" mode="center" />
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="nav-grp">
+    <view class="nav-item" wx:for="{{ navList }}" wx:key="index" data-page="{{ item.page }}" bindtap="goPage">
+      <view class="nav-icon" style="background:{{ item.background }}">
+        <text class="iconfont {{ item.icon }}"></text>
+      </view>
+      <text class="nav-txt">{{ item.txt }}</text>
+    </view>
+  </view>
+
+  <view class="wrapper">
+    <view>
+      <text>更多</text>
+    </view>
+    <articleList list="{{ list }}"></articleList>
+  </view>
+</view>

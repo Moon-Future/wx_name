@@ -1,0 +1,32 @@
+<!--miniprogram/pages/computeName/computeName.wxml-->
+<view class="page">
+  <view class="weui-form__control-area">
+    <view class="weui-cells__group weui-cells__group_form">
+      <view class="weui-cells__title">表单组标题</view>
+      <view class="weui-cells weui-cells_form">
+        <view class="weui-cell weui-cell_active">
+          <view class="weui-cell__hd"><label class="weui-label">姓氏</label></view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" placeholder="填写姓氏" placeholder-class="weui-input__placeholder" />
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_active">
+          <view class="weui-cell__hd">              
+            <label class="weui-label">性别</label>
+          </view>
+          <view class="weui-cell__bd">
+
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_active">
+          <view class="weui-cell__hd">              
+            <label class="weui-label">字数</label>
+          </view>
+          <view class="weui-cell__bd">
+            
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
