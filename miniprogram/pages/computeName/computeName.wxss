@@ -9,5 +9,33 @@
 }
 
 .form-btn {
-  margin-top: 20px;
+  margin: 20px 0;
+}
+
+.name-list {
+  background: #fff;
+}
+
+.name-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 10px;
+}
+
+.name-item + .name-item {
+  border-top: 1px solid #e4e3e3;
+}
+
+.icongrp {
+  display: flex;
+  align-items: center;
+}
+
+.icongrp .icon-copy {
+  margin-right: 10px;
+}
+
+.weui-toptips {
+  display: block;
+  background-color: var(--weui-FG-1);
 }
