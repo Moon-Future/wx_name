@@ -15,8 +15,21 @@
   justify-content: space-between;
 }
 
+.article-wrapper {
+  display: flex;
+  flex-flow: column;
+  text-align: left;
+}
+
 .article-title {
   font-size: 34rpx;
+}
+
+.article-summary {
+  font-size: 28rpx;
+  height: 80rpx;
+  overflow: hidden;
+  color: #52616b;
 }
 
 .article-info {
