@@ -13,6 +13,7 @@
   display: flex;
   flex-flow: column;
   justify-content: space-between;
+  padding-right: 20rpx;
 }
 
 .article-wrapper {
@@ -47,5 +48,6 @@
 
 .article-img {
   width: 300rpx;
+  height: 100rpx;
   flex: 0 0 auto;
 }

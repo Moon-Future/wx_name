@@ -1,4 +1,4 @@
-/* miniprogram/pages/computeName/computeName.wxss */
+/* miniprogram/pages/createName/createName.wxss */
 .radio-grp {
   display: flex;
 }
@@ -18,8 +18,32 @@
 
 .name-item {
   display: flex;
+  flex-flow: column;
   justify-content: space-between;
   padding: 5px 10px;
+}
+
+.word-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.word-attr {
+  font-size: 26rpx;
+}
+
+.source-wrapper {
+  display: flex;
+  flex-flow: column;
+  font-size: 26rpx;
+}
+
+.mean {
+  color: red;
+}
+
+.source {
+  text-align: right;
 }
 
 .name-item + .name-item {
@@ -38,4 +62,9 @@
 .weui-toptips {
   display: block;
   background-color: var(--weui-FG-1);
+}
+
+.page__desc {
+  text-align: center;
+  padding: 20rpx 0;
 }

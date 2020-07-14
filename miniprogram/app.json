@@ -14,7 +14,10 @@
         "pages/openapi/cloudid/cloudid",
         "pages/im/im",
         "pages/im/room/room",
-        "pages/computeName/computeName"
+        "pages/createName/createName",
+        "pages/article/article",
+        "pages/user/user",
+        "pages/articleDetail/articleDetail"
     ],
     "window": {
         "backgroundColor": "#F6F6F6",
@@ -22,6 +25,31 @@
         "navigationBarBackgroundColor": "#F6F6F6",
         "navigationBarTitleText": "云开发 QuickStart",
         "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "color": "#bfbfbf",
+        "selectedColor": "#1afa29",
+        "borderStyle": "white",
+        "list": [
+            {
+                "selectedIconPath": "images/home_on.png",
+                "iconPath": "images/home.png",
+                "pagePath": "pages/home/home",
+                "text": "首页"
+            },
+            {
+                "selectedIconPath": "images/article_on.png",
+                "iconPath": "images/article.png",
+                "pagePath": "pages/article/article",
+                "text": "诗文"
+            },
+            {
+                "selectedIconPath": "images/user_on.png",
+                "iconPath": "images/user.png",
+                "pagePath": "pages/user/user",
+                "text": "我的"
+            }
+        ]
     },
     "sitemapLocation": "sitemap.json",
     "style": "v2"

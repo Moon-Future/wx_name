@@ -1,6 +1,6 @@
 <!--components/articleList/articleList.wxml-->
 <view class="article-list">
-  <view class="article-item" wx:for="{{ list }}" wx:key="index">
+  <view class="article-item" wx:for="{{ list }}" wx:key="id" data-title="{{ item.title }}" bindtap="readDetail">
     <view class="article-text">
       <view class="article-wrapper">
         <text class="article-title">{{ item.title }}</text>
@@ -11,6 +11,6 @@
         <text class="time">{{ item.date }}</text>
       </view>
     </view>
-    <image class="article-img" src="https://www.yw11.com/uploads/00_yw11/boy/boy_73.jpg" mode="widthFix" />
+    <image class="article-img" src="{{ item.img || 'https://wxproject-1255423800.cos.ap-guangzhou.myqcloud.com/project_name/article/cover_default.png' }}" mode="widthFix" />
   </view>
 </view>

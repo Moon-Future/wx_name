@@ -2,7 +2,7 @@
 <view class="page">
   <swiper indicator-dots="{{ indicatorDots }}"
     autoplay="{{ autoplay }}" interval="{{ interval }}" duration="{{ duration }}">
-    <block wx:for="{{ background }}" wx:key="*this">
+    <block wx:for="{{ background }}" wx:key="index">
       <swiper-item>
         <view class="swiper-item">
           <image class="swiper-img" src="{{ item.img }}" mode="center" />

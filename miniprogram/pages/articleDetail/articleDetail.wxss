@@ -1,0 +1,11 @@
+/* miniprogram/pages/articleDetail/articleDetail.wxss */
+.content-wrpper {
+  padding: 20rpx;
+  font-size: 32rpx;
+}
+.article-title {
+  text-align: center;
+  font-size: 40rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+}

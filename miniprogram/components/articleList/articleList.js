@@ -21,6 +21,11 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    readDetail(e) {
+      const title = e.currentTarget.dataset.title
+      wx.navigateTo({
+        url: `/pages/articleDetail/articleDetail?title=${title}`
+      })
+    }
   }
 })

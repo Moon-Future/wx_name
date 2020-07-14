@@ -1,5 +1,6 @@
 // miniprogram/pages/home/home.js
 import { formatTime } from '../../utils/util'
+import { http } from '../../utils/http'
 Page({
 
   /**
@@ -18,13 +19,13 @@ Page({
     duration: 500,
     navList: [
       { icon: 'icon-baobao', txt: '宝宝取名', background: '#e79cc2',
-        page: '/pages/computeName/computeName' },
+        page: '/pages/createName/createName' },
       { icon: 'icon-shejiaoquan', txt: '社交昵称', background: '#ff9234',
-        page: '/pages/computeName/computeName' },
+        page: '/pages/createName/createName' },
       { icon: 'icon-game', txt: '游戏昵称', background: '#87dfd6',
-        page: '/pages/computeName/computeName' },
+        page: '/pages/createName/createName' },
       { icon: 'icon-english', txt: '英文取名', background: '#a3f7bf',
-        page: '/pages/computeName/computeName' }
+        page: '/pages/createName/createName' }
     ],
     list: [
       { 
@@ -42,8 +43,8 @@ Page({
 
   getArticleList() {
     const self = this
-    wx.request({
-      url: 'http://localhost:5555/api/proname/getArticle',
+    http({
+      url: 'getArticle',
       success: function(res) {
         let list = res.data.data
         list.forEach((ele, index) => {

@@ -1,0 +1,5 @@
+<!--miniprogram/pages/articleDetail/articleDetail.wxml-->
+<view class="content-wrpper">
+  <view class="article-title">{{ title }}</view>
+  <rich-text nodes="{{ content }}" space="emsp"></rich-text>
+</view>
