@@ -2,12 +2,15 @@
 <view class="article-list">
   <view class="article-item" wx:for="{{ list }}" wx:key="index">
     <view class="article-text">
-      <text class="article-title">{{ item.title }}</text>
+      <view class="article-wrapper">
+        <text class="article-title">{{ item.title }}</text>
+        <text class="article-summary">{{ item.summary }}</text>
+      </view>
       <view class="article-info">
-        <text class="tag">{{ item.tag }}</text>
-        <text class="time">{{ item.time }}</text>
+        <text class="tag" wx:if="{{ item.tag !== '-1' }}">{{ item.tagm }}</text>
+        <text class="time">{{ item.date }}</text>
       </view>
     </view>
-    <image class="article-img" src="{{ item.img }}" mode="widthFix" />
+    <image class="article-img" src="https://www.yw11.com/uploads/00_yw11/boy/boy_73.jpg" mode="widthFix" />
   </view>
 </view>

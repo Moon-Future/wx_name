@@ -1,4 +1,5 @@
 // miniprogram/pages/home/home.js
+import { formatTime } from '../../utils/util'
 Page({
 
   /**
@@ -31,32 +32,28 @@ Page({
         img: 'https://www.yw11.com/uploads/00_yw11/boy/boy_73.jpg',
         time: '07-07',
         tag: '起名理论'
-      },
-      { 
-        title: '2020鼠宝宝起名大全',
-        img: 'https://www.yw11.com/uploads/00_yw11/boy/boy_73.jpg',
-        time: '07-07',
-        tag: '起名理论'
-      },
-      { 
-        title: '2020鼠宝宝起名大全',
-        img: 'https://www.yw11.com/uploads/00_yw11/boy/boy_73.jpg',
-        time: '07-07',
-        tag: '起名理论'
-      },
-      { 
-        title: '2020鼠宝宝起名大全',
-        img: 'https://www.yw11.com/uploads/00_yw11/boy/boy_73.jpg',
-        time: '07-07',
-        tag: '起名理论'
-      },
-      { 
-        title: '2020鼠宝宝起名大全',
-        img: 'https://www.yw11.com/uploads/00_yw11/boy/boy_73.jpg',
-        time: '07-07',
-        tag: '起名理论'
       }
     ]
+  },
+
+  onLoad() {
+    this.getArticleList()
+  },
+
+  getArticleList() {
+    const self = this
+    wx.request({
+      url: 'http://localhost:5555/api/proname/getArticle',
+      success: function(res) {
+        let list = res.data.data
+        list.forEach((ele, index) => {
+          list[index].date = formatTime(ele.date, 'yyyy-MM-dd')
+        })
+        self.setData({
+          list: list
+        })
+      }
+    })
   },
 
   goPage(e) {
@@ -64,5 +61,5 @@ Page({
     wx.navigateTo({
       url: page
     })
-  }
+  },
 })
