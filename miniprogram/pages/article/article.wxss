@@ -1,11 +1,53 @@
 /* miniprogram/pages/article/article.wxss */
-.content-wrpper {
-  padding: 20rpx;
-  font-size: 32rpx;
+.poetry-container {
 }
-.article-title {
-  text-align: center;
-  font-size: 40rpx;
-  font-weight: bold;
+
+.poetry-item {
+  display: flex;
+  flex-flow: column;
+  text-align: left;
+  font-size: 32rpx;
+  color: #204051;
+  background: #fff;
+  padding: 10rpx 20rpx;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.author {
+  margin-top: 10rpx;
   margin-bottom: 20rpx;
+  font-size: 28rpx;
+}
+
+.search-wrapper {
+  display: flex;
+  position: fixed;
+  left: 0;
+  right: 0;
+}
+
+.select-custom {
+  width: 100px;
+}
+
+.search-custom {
+  width: calc(100% - 100px);
+}
+
+.search-root {
+  padding: 0 !important;
+  height: 100% !important;
+}
+
+.block {
+  height: 60px;
+}
+
+.loading-wrapper {
+  width: 100%;
+}
+
+.weui-loadmore__tips {
+  z-index: -1;
 }

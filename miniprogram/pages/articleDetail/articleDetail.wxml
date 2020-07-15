@@ -1,5 +1,10 @@
 <!--miniprogram/pages/articleDetail/articleDetail.wxml-->
 <view class="content-wrpper">
   <view class="article-title">{{ title }}</view>
+  <view class="poetry">
+    <text class="author">{{ poetry.author }}{{ poetry.dynasty ? ' · ' : '' }}{{ poetry.dynasty }}</text>
+    <text class="verse">{{ poetry.verse }}</text>
+  </view>
+  <view class="devide" wx:if="{{ content && poetry.id }}"></view>
   <rich-text nodes="{{ content }}" space="emsp"></rich-text>
 </view>

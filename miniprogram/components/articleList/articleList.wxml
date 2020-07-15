@@ -7,7 +7,7 @@
         <text class="article-summary">{{ item.summary }}</text>
       </view>
       <view class="article-info">
-        <text class="tag" wx:if="{{ item.tag !== '-1' }}">{{ item.tagm }}</text>
+        <van-tag wx:if="{{ item.tag !== '-1' }}" class="tag">{{ item.tagm }}</van-tag>
         <text class="time">{{ item.date }}</text>
       </view>
     </view>

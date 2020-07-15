@@ -19,22 +19,15 @@ Page({
     duration: 500,
     navList: [
       { icon: 'icon-baobao', txt: '宝宝取名', background: '#e79cc2',
-        page: '/pages/createName/createName' },
+        page: '/pages/createName/createName?title=宝宝取名&tab=0' },
       { icon: 'icon-shejiaoquan', txt: '社交昵称', background: '#ff9234',
-        page: '/pages/createName/createName' },
+        page: '/pages/createName/createName?title=社交昵称&tab=1' },
       { icon: 'icon-game', txt: '游戏昵称', background: '#87dfd6',
-        page: '/pages/createName/createName' },
+        page: '/pages/createName/createName?title=游戏昵称&tab=2' },
       { icon: 'icon-english', txt: '英文取名', background: '#a3f7bf',
-        page: '/pages/createName/createName' }
+        page: '/pages/createName/createName?title=英文取名&tab=3' }
     ],
-    list: [
-      { 
-        title: '2020鼠宝宝起名大全',
-        img: 'https://www.yw11.com/uploads/00_yw11/boy/boy_73.jpg',
-        time: '07-07',
-        tag: '起名理论'
-      }
-    ]
+    list: []
   },
 
   onLoad() {
@@ -63,4 +56,8 @@ Page({
       url: page
     })
   },
+
+  moreArticle() {
+    
+  }
 })

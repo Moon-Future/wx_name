@@ -1,8 +1,8 @@
 <!--miniprogram/pages/createName/createName.wxml-->
 <view class="page">
   <view class="weui-cells__group weui-cells__group_form">
-    <view class="weui-cells__title">基础信息</view>
-    <view class="weui-cells weui-cells_form">
+    <view class="weui-cells__title">{{ title }}</view>
+    <view class="weui-cells weui-cells_form" wx:if="{{ tab === '0' }}">
       <view class="weui-cell">
         <view class="weui-cell__hd"><label class="weui-label">姓氏</label></view>
         <view class="weui-cell__bd">
@@ -42,15 +42,16 @@
             </label>
           </radio-group>
         </view>
-      </view><view class="weui-cell">
+      </view>
+      <view class="weui-cell">
         <view class="weui-cell__hd"><label class="weui-label">特征</label></view>
         <view class="weui-cell__bd">
-          <input class="weui-input" placeholder="填写特征，如古典，霸气，温柔等等" placeholder-class="weui-input__placeholder" data-field="feature" value="{{ formData.feature }}" bindblur="updateValue" />
+          <input class="weui-input" placeholder="{{ featurePlaceholder[tab] }}" placeholder-class="weui-input__placeholder" data-field="feature" value="{{ formData.feature }}" bindblur="updateValue" />
         </view>
       </view>
     </view>
   </view>
-  <button class="form-btn" type="primary" bindtap="createName" loading="{{ loading }}">生成名字</button>
+  <button class="form-btn" type="primary" bindtap="createName" loading="{{ loading }}" wx:if="{{ tab === '0' }}">生成名字</button>
 
   <view wx:if="{{ topTips }}" class="weui-toptips weui-toptips_warn">拷贝成功</view>
 
@@ -80,10 +81,8 @@
       <view class="page__desc" bindtap="loadmore">加载更多</view>
     </view>
     <view class="page__bd" wx:if="{{ loadingMore }}">
-      <view class="weui-loadmore">
-        <i class="weui-loading"></i>
-        <text class="weui-loadmore__tips">正在加载</text>
-      </view>
+      <i class="weui-loading"></i>
+      <text class="weui-loadmore__tips">正在加载</text>
     </view>
   </block>
 </view>

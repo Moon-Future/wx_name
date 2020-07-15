@@ -64,7 +64,8 @@
   background-color: var(--weui-FG-1);
 }
 
-.page__desc {
-  text-align: center;
+.page__hd, .page__bd {
+  display: flex;
+  justify-content: center;
   padding: 20rpx 0;
 }

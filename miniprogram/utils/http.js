@@ -1,9 +1,11 @@
-const baseUrl = 'http://localhost:5555/api/proname/'
+// const baseUrl = 'http://localhost:5555/api/proname/'
+const baseUrl = 'https://wxproject.cl8023.com/api/proname/'
 
 const API = {
   getArticle: baseUrl + 'getArticle',
   getArticleFile: baseUrl + 'getArticleFile',
-  createName: baseUrl + 'createName'
+  createName: baseUrl + 'createName',
+  getWxArticle: baseUrl + 'getWxArticle'
 }
 
 export function http(opts) {

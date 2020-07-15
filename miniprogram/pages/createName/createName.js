@@ -6,6 +6,14 @@ Page({
    * 页面的初始数据
    */
   data: {
+    title: '',
+    tab: '',
+    featurePlaceholder: {
+      '0': '古典，霸气，温柔，贤惠...',
+      '1': '中二...',
+      '2': '霸气...',
+      '3': '文艺...'
+    },
     topTips: false,
     nameList: [],
     formData: {
@@ -17,6 +25,16 @@ Page({
     subData: {},
     loading: false,
     loadingMore: false
+  },
+
+  onLoad(options) {
+    this.setData({
+      title: options.title,
+      tab: options.tab
+    })
+    if (options.tab !== '0') {
+      this.getName()
+    }
   },
 
   radioChange(e) {
@@ -32,6 +50,25 @@ Page({
     let value = e.detail.value
     this.setData({
       ['formData.' + field]: value
+    })
+  },
+
+  // 网游，社交，英文名直接取数据
+  getName() {
+    http({
+      url: 'createName',
+      data: { tab: this.data.tab },
+      method: 'POST',
+      success: (res) => {
+        let data = res.data.data
+        this.setData({
+          nameList: data,
+          loadingMore: false
+        })
+      },
+      fail: () => {
+
+      }
     })
   },
 

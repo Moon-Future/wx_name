@@ -21,7 +21,7 @@
 
   <view class="wrapper">
     <view>
-      <text>更多</text>
+      <text bindtap="moreArticle">更多</text>
     </view>
     <articleList list="{{ list }}"></articleList>
   </view>

@@ -1,11 +1,26 @@
 /* miniprogram/pages/articleDetail/articleDetail.wxss */
 .content-wrpper {
   padding: 20rpx;
-  font-size: 32rpx;
+  font-size: 34rpx;
 }
 .article-title {
   text-align: center;
   font-size: 40rpx;
   font-weight: bold;
   margin-bottom: 20rpx;
+}
+.poetry {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+.author {
+  margin-bottom: 10px;
+}
+.devide {
+  height: 1px;
+  width: 100%;
+  background: #fff;
+  margin: 10rpx 0;
 }

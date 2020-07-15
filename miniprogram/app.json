@@ -1,56 +1,44 @@
 {
-    "pages": [
-        "pages/home/home",
-        "pages/index/index",
-        "pages/userConsole/userConsole",
-        "pages/storageConsole/storageConsole",
-        "pages/databaseGuide/databaseGuide",
-        "pages/addFunction/addFunction",
-        "pages/deployFunctions/deployFunctions",
-        "pages/chooseLib/chooseLib",
-        "pages/openapi/openapi",
-        "pages/openapi/serverapi/serverapi",
-        "pages/openapi/callback/callback",
-        "pages/openapi/cloudid/cloudid",
-        "pages/im/im",
-        "pages/im/room/room",
-        "pages/createName/createName",
-        "pages/article/article",
-        "pages/user/user",
-        "pages/articleDetail/articleDetail"
-    ],
-    "window": {
-        "backgroundColor": "#F6F6F6",
-        "backgroundTextStyle": "light",
-        "navigationBarBackgroundColor": "#F6F6F6",
-        "navigationBarTitleText": "云开发 QuickStart",
-        "navigationBarTextStyle": "black"
-    },
-    "tabBar": {
-        "color": "#bfbfbf",
-        "selectedColor": "#1afa29",
-        "borderStyle": "white",
-        "list": [
-            {
-                "selectedIconPath": "images/home_on.png",
-                "iconPath": "images/home.png",
-                "pagePath": "pages/home/home",
-                "text": "首页"
-            },
-            {
-                "selectedIconPath": "images/article_on.png",
-                "iconPath": "images/article.png",
-                "pagePath": "pages/article/article",
-                "text": "诗文"
-            },
-            {
-                "selectedIconPath": "images/user_on.png",
-                "iconPath": "images/user.png",
-                "pagePath": "pages/user/user",
-                "text": "我的"
-            }
-        ]
-    },
-    "sitemapLocation": "sitemap.json",
-    "style": "v2"
+  "pages": [
+    "pages/home/home",
+    "pages/createName/createName",
+    "pages/article/article",
+    "pages/user/user",
+    "pages/articleDetail/articleDetail"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "云开发 QuickStart",
+    "navigationBarTextStyle": "black"
+  },
+  "usingComponents": {
+    "van-button": "/miniprogram_npm/@vant/weapp/button/index",
+    "van-search": "/miniprogram_npm/@vant/weapp/search/index",
+    "van-dropdown-menu": "/miniprogram_npm/@vant/weapp/dropdown-menu/index",
+    "van-dropdown-item": "/miniprogram_npm/@vant/weapp/dropdown-item/index",
+    "van-loading": "/miniprogram_npm/@vant/weapp/loading/index",
+    "van-tag": "/miniprogram_npm/@vant/weapp/tag/index"
+  },
+  "tabBar": {
+    "color": "#bfbfbf",
+    "selectedColor": "#1afa29",
+    "borderStyle": "white",
+    "list": [
+      {
+        "selectedIconPath": "images/home_on.png",
+        "iconPath": "images/home.png",
+        "pagePath": "pages/home/home",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "images/article_on.png",
+        "iconPath": "images/article.png",
+        "pagePath": "pages/article/article",
+        "text": "诗文"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
 }
