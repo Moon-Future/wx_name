@@ -6,6 +6,7 @@
       <swiper-item>
         <view class="swiper-item">
           <image class="swiper-img" src="{{ item.img }}" mode="center" />
+          <!-- <van-image custom-class="swiper-img" src="{{ item.img }}" fit="contain" /> -->
         </view>
       </swiper-item>
     </block>
@@ -20,9 +21,11 @@
   </view>
 
   <view class="wrapper">
-    <view>
+    <view class="btngrp" wx:if="{{ list.length !== 0 }}">
+      <van-icon name="replay" bindtap="getArticleList" />
       <text bindtap="moreArticle">更多</text>
     </view>
+    <van-loading size="24px" custom-class="loading-wrapper" wx:if="{{ loading }}" />
     <articleList list="{{ list }}"></articleList>
   </view>
 </view>

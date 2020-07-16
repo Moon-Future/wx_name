@@ -11,6 +11,6 @@
         <text class="time">{{ item.date }}</text>
       </view>
     </view>
-    <image class="article-img" src="{{ item.img || 'https://wxproject-1255423800.cos.ap-guangzhou.myqcloud.com/project_name/article/cover_default.png' }}" mode="widthFix" />
+    <van-image width="80" height="80" src="{{ item.img || 'https://wxproject-1255423800.cos.ap-guangzhou.myqcloud.com/project_name/article/cover_default.png' }}" />
   </view>
 </view>

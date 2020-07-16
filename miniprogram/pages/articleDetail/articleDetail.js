@@ -9,7 +9,8 @@ Page({
     title: '',
     content: '',
     tab: '',
-    poetry: {}
+    poetry: {},
+    loading: false
   },
 
   /**
@@ -24,17 +25,34 @@ Page({
   },
 
   getContent(title, id, tab) {
+    this.setData({
+      loading: true
+    })
     http({
       url: 'getArticleFile',
       data: { title, id, tab },
       success: (res) => {
         let { poetry, article } = res.data
         this.setData({
+          loading: false,
           title: title,
           poetry: poetry,
           content: article.replace(/<img /g, '<img style="max-width:100%;height:auto;display:block;margin:10px 0;"') 
         })
+      },
+      fail: () => {
+        this.setData({
+          loading: false
+        })
       }
     })
+  },
+
+  onShareAppMessage(res) {
+    const { title, id, tab } = this.data
+    return {
+      title: `${title}-取名通`,
+      path: `/pages/articleDetail/articleDetail?title=${title}&id=${id}&tab=${tab}`,
+    }
   }
 })

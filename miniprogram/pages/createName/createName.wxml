@@ -16,11 +16,11 @@
         <view class="weui-cell__bd">
           <radio-group class="radio-grp" data-field="used" bindchange="radioChange">
             <label class="wx-flex radio-label">
-              <radio value="1" checked="true" />
+              <radio value="1" />
               <view class="weui-cell__bd">男</view>
             </label>
             <label class="wx-flex">
-              <radio value="0" />
+              <radio value="0" checked="true" />
               <view class="weui-cell__bd">女</view>
             </label>
           </radio-group>
@@ -33,11 +33,11 @@
         <view class="weui-cell__bd">
           <radio-group class="radio-grp" data-field="length" bindchange="radioChange">
             <label class="wx-flex radio-label">
-              <radio value="1" checked="true" />
+              <radio value="1" />
               <view class="weui-cell__bd">单字</view>
             </label>
             <label class="wx-flex">
-              <radio value="2" />
+              <radio value="2" checked="true" />
               <view class="weui-cell__bd">双字</view>
             </label>
           </radio-group>
@@ -51,7 +51,7 @@
       </view>
     </view>
   </view>
-  <button class="form-btn" type="primary" bindtap="createName" loading="{{ loading }}" wx:if="{{ tab === '0' }}">生成名字</button>
+  <van-button custom-class="form-btn" type="primary" bindtap="createName" loading="{{ loading }}" wx:if="{{ tab === '0' }}" block>生成名字</van-button>
 
   <view wx:if="{{ topTips }}" class="weui-toptips weui-toptips_warn">拷贝成功</view>
 
@@ -60,23 +60,20 @@
       <view class="word-wrapper">
         <view>
           <text>{{ formData.surname }}{{ item.word }}</text>
-          <text class="word-attr">【{{ item.pronounce }}】【{{ item.attr }}】</text>
+          <text class="word-attr" wx:if="{{ item.pronounce }}">【{{ item.pronounce }}】【{{ item.attr }}】</text>
         </view>
         <view class="icongrp">
           <text class="iconfont icon-copy" data-name="{{ item.word }}" bindtap="copyName"></text>
-          <text class="iconfont icon-like" 
-            data-index="{{ index }}" 
-            style="color: {{ item.like ? 'red' : 'initial' }}; font-weight: {{ item.like ? 'bold' : 'initial' }}" 
-            bindtap="clickLike"></text>
+          <button class="iconfont icon-share" open-type="share" data-index="{{ index }}" bindtap="clickLike"></button>
         </view>
       </view>
       <view class="source-wrapper">
         <view class="mean">{{ item.mean }}</view>
-        <view class="source">出自 “{{ item.source }}” -- {{ item.author }}{{ item.dynasty === '' ? '' : ' · ' }}{{ item.dynasty }} {{ item.poetry === '' ? '' : '《' + item.poetry + '》' }}</view>
+        <view class="source" wx:if="{{ item.source }}">出自 “{{ item.source }}” -- {{ item.author }}{{ item.dynasty === '' ? '' : ' · ' }}{{ item.dynasty }} {{ item.poetry === '' ? '' : '《' + item.poetry + '》' }}</view>
       </view>
     </view>
   </view>
-  <block wx:if="{{ nameList.length !== 0 }}">
+  <block wx:if="{{ nameList.length !== 0 && nameList.length !== count }}">
     <view class="page__hd" wx:if="{{ !loadingMore }}">
       <view class="page__desc" bindtap="loadmore">加载更多</view>
     </view>

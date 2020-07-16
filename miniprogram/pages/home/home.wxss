@@ -34,9 +34,15 @@
 .wrapper {
   margin-top: 20px;
   padding: 20rpx;
-}
-
-.wrapper {
   text-align: right;
   font-size: 36rpx;
+}
+
+.btngrp {
+  display: flex;
+  justify-content: space-between;
+}
+
+.loading-wrapper {
+  width: 100%;
 }

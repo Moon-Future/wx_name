@@ -56,6 +56,11 @@ Page({
             noData: true
           })
         }
+      },
+      fail: () => {
+        this.setData({
+          loading: false
+        })
       }
     })
   },

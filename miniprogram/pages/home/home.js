@@ -8,9 +8,9 @@ Page({
    */
   data: {
     background: [
-      { img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1594120161177&di=3222c2511f6325d93fb78db47c4d59ab&imgtype=0&src=http%3A%2F%2Fbpic.588ku.com%2Fback_pic%2F03%2F72%2F40%2F0057b93bca30cb6.jpg' },
-      { img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1594120210741&di=53f98403647a7aa67644cf89edb102ff&imgtype=0&src=http%3A%2F%2Fphoto.16pic.com%2F00%2F47%2F38%2F16pic_4738284_b.jpg' },
-      { img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1594120161174&di=78a9f47875876dd7d75603769e859c1a&imgtype=0&src=http%3A%2F%2Fpic.90sjimg.com%2Fback_pic%2F00%2F00%2F69%2F40%2Fs_1198_2cc8d6389629c39568e4a22b851e2b88.jpg' }
+      { img: 'https://wxproject-1255423800.cos.ap-guangzhou.myqcloud.com/project_name/banner/banner-1.png' },
+      { img: 'https://wxproject-1255423800.cos.ap-guangzhou.myqcloud.com/project_name/banner/banner-2.png' },
+      { img: 'https://wxproject-1255423800.cos.ap-guangzhou.myqcloud.com/project_name/banner/banner-3.png' }
     ],
     indicatorDots: true,
     vertical: false,
@@ -35,16 +35,24 @@ Page({
   },
 
   getArticleList() {
-    const self = this
+    this.setData({
+      loading: true
+    })
     http({
-      url: 'getArticle',
-      success: function(res) {
+      url: 'getRandArticle',
+      success: (res) => {
         let list = res.data.data
         list.forEach((ele, index) => {
           list[index].date = formatTime(ele.date, 'yyyy-MM-dd')
         })
-        self.setData({
-          list: list
+        this.setData({
+          list: list,
+          loading: false
+        })
+      },
+      fail: () => {
+        this.setData({
+          loading: false
         })
       }
     })
@@ -58,6 +66,15 @@ Page({
   },
 
   moreArticle() {
-    
+    wx.switchTab({
+      url: '/pages/article/article'
+    })
+  },
+
+  onShareAppMessage: function() {
+    return {
+      title: '转发',
+      path: '/pages/home/home',
+    }
   }
 })

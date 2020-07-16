@@ -6,8 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    title: '',
-    tab: '',
+    title: '宝宝取名',
+    tab: '0',
     featurePlaceholder: {
       '0': '古典，霸气，温柔，贤惠...',
       '1': '中二...',
@@ -16,10 +16,11 @@ Page({
     },
     topTips: false,
     nameList: [],
+    count: 0,
     formData: {
       surname: '',
-      used: '1',
-      length: '1',
+      used: '0',
+      length: '2',
       feature: '',
     },
     subData: {},
@@ -63,7 +64,8 @@ Page({
         let data = res.data.data
         this.setData({
           nameList: data,
-          loadingMore: false
+          loadingMore: false,
+          count: res.data.count
         })
       },
       fail: () => {
@@ -94,11 +96,15 @@ Page({
         this.setData({
           nameList: data,
           loading: false,
-          loadingMore: false
+          loadingMore: false,
+          count: res.data.count
         })
       },
       fail: () => {
-
+        this.setData({
+          loading: false,
+          loadingMore: false
+        })
       }
     })
   },
@@ -124,7 +130,8 @@ Page({
         nameList = nameList.concat(data)
         this.setData({
           nameList: nameList,
-          loadingMore: false
+          loadingMore: false,
+          count: res.data.count
         })
       },
       fail: () => {
@@ -149,5 +156,19 @@ Page({
     this.setData({
       nameList
     })
+  },
+
+  onShareAppMessage(res) {
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      return {
+        title: this.data.nameList[res.target.dataset.index].word + '-取名通',
+        path: '/pages/home/home',
+      }
+    }
+    return {
+      title: '好名字来自-取名通',
+      path: '/pages/home/home',
+    }
   }
 })

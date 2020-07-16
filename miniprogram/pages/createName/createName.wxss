@@ -9,7 +9,8 @@
 }
 
 .form-btn {
-  margin: 20px 0;
+  margin: 20px auto;
+  width: 80% !important;
 }
 
 .name-list {
@@ -26,6 +27,7 @@
 .word-wrapper {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 10rpx;
 }
 
 .word-attr {
@@ -59,6 +61,12 @@
   margin-right: 10px;
 }
 
+.icongrp .icon-copy, .icongrp .icon-share {
+  font-size: 50rpx;
+  padding: 0;
+  line-height: initial;
+}
+
 .weui-toptips {
   display: block;
   background-color: var(--weui-FG-1);
@@ -68,4 +76,8 @@
   display: flex;
   justify-content: center;
   padding: 20rpx 0;
+}
+
+.weui-cells__title {
+  padding-top: 5px !important;
 }

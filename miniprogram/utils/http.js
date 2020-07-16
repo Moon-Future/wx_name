@@ -5,7 +5,8 @@ const API = {
   getArticle: baseUrl + 'getArticle',
   getArticleFile: baseUrl + 'getArticleFile',
   createName: baseUrl + 'createName',
-  getWxArticle: baseUrl + 'getWxArticle'
+  getWxArticle: baseUrl + 'getWxArticle',
+  getRandArticle: baseUrl + 'getRandArticle'
 }
 
 export function http(opts) {

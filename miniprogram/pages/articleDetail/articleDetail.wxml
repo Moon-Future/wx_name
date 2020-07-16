@@ -1,5 +1,6 @@
 <!--miniprogram/pages/articleDetail/articleDetail.wxml-->
 <view class="content-wrpper">
+  <van-loading size="24px" custom-class="loading-wrapper" wx:if="{{ loading }}" />
   <view class="article-title">{{ title }}</view>
   <view class="poetry">
     <text class="author">{{ poetry.author }}{{ poetry.dynasty ? ' · ' : '' }}{{ poetry.dynasty }}</text>

@@ -19,7 +19,10 @@
     "van-dropdown-menu": "/miniprogram_npm/@vant/weapp/dropdown-menu/index",
     "van-dropdown-item": "/miniprogram_npm/@vant/weapp/dropdown-item/index",
     "van-loading": "/miniprogram_npm/@vant/weapp/loading/index",
-    "van-tag": "/miniprogram_npm/@vant/weapp/tag/index"
+    "van-tag": "/miniprogram_npm/@vant/weapp/tag/index",
+    "van-image": "/miniprogram_npm/@vant/weapp/image/index",
+    "van-icon": "/miniprogram_npm/@vant/weapp/icon/index",
+    "van-toast": "/miniprogram_npm/@vant/weapp/toast/index"
   },
   "tabBar": {
     "color": "#bfbfbf",
