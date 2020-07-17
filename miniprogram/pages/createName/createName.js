@@ -80,8 +80,6 @@ Page({
     }
     let formData = this.data.formData
     formData.exceptList = []
-    console.log(formData)
-    // return
     this.setData({
       loading: true,
       loadingMore: true,

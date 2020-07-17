@@ -22,7 +22,9 @@
     "van-tag": "/miniprogram_npm/@vant/weapp/tag/index",
     "van-image": "/miniprogram_npm/@vant/weapp/image/index",
     "van-icon": "/miniprogram_npm/@vant/weapp/icon/index",
-    "van-toast": "/miniprogram_npm/@vant/weapp/toast/index"
+    "van-toast": "/miniprogram_npm/@vant/weapp/toast/index",
+    "van-tab": "/miniprogram_npm/@vant/weapp/tab/index",
+    "van-tabs": "/miniprogram_npm/@vant/weapp/tabs/index"
   },
   "tabBar": {
     "color": "#bfbfbf",

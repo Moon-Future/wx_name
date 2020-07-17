@@ -4,7 +4,7 @@
 
 .poetry-item {
   display: flex;
-  flex-flow: column;
+  justify-content: space-between;
   text-align: left;
   font-size: 32rpx;
   color: #204051;
@@ -12,6 +12,11 @@
   padding: 10rpx 20rpx;
   border-radius: 4px;
   margin-bottom: 10px;
+}
+
+.poetry-info {
+  display: flex;
+  flex-flow: column;
 }
 
 .author {
@@ -25,6 +30,7 @@
   position: fixed;
   left: 0;
   right: 0;
+  z-index: 10;
 }
 
 .select-custom {

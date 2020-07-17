@@ -1,7 +1,12 @@
 /* miniprogram/pages/articleDetail/articleDetail.wxss */
+.article-contianer {
+  font-size: 34rpx;
+}
 .content-wrpper {
   padding: 20rpx;
-  font-size: 34rpx;
+}
+.van-tab__pane {
+  padding: 20rpx;
 }
 .article-title {
   text-align: center;
@@ -69,4 +74,24 @@
 }
 .loading-wrapper {
   width: 100%;
+}
+.cankao {
+  width: 100%;
+}
+.tabs-wrapper {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.tabs-height {
+  height: 60px;
+}
+.tab-content {
+  position: absolute;
+  top: 50px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: auto;
 }
