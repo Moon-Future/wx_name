@@ -1,0 +1,32 @@
+<!--miniprogram/pages/article/article.wxml-->
+<view class="poetry-container">
+  <view class="search-wrapper">
+    <van-dropdown-menu class="select-custom">
+      <van-dropdown-item value="{{ tab }}" options="{{ options }}" bind:change="changeTab" />
+    </van-dropdown-menu>
+    <van-search class="search-custom"
+      custom-class="search-root"
+      value="{{ value }}"
+      placeholder="请输入搜索关键词"
+      use-action-slot
+      bind:change="onChange"
+      bind:search="search"
+    >
+      <view slot="action" bind:tap="search">搜索</view>
+    </van-search>
+  </view>
+  <view class="block"></view>
+  <view class="poetry-item" wx:for="{{ articleList }}" wx:key="index" data-index="{{ index }}" bindtap="readDetail">
+    <view class="poetry-info">
+      <text class="poetry-title">{{ item.title }}</text>
+      <text class="author">{{ item.author }}{{ item.dynasty ? ' · ' : '' }}{{ item.dynasty }}</text>
+      <text class="sunmmary">{{ item.sunmmary }}</text>
+      <text class="verse">{{ item.verse }}</text>
+    </view>
+    <view wx:if="{{ item.img }}">
+      <van-image width="80" height="80" src="{{ item.img }}" />
+    </view>
+  </view>
+  <van-empty wx:if="{{ noData }}" description="暂无数据" />
+  <van-loading size="24px" custom-class="loading-wrapper" wx:if="{{ loading }}" />
+</view>

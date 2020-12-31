@@ -1,0 +1,14 @@
+<van-search class="search-custom"
+  custom-class="search-root"
+  value="{{ value }}"
+  placeholder="请输入搜索关键词"
+  use-action-slot
+  bind:change="onChange"
+  bind:search="search"
+>
+  <view slot="action" bind:tap="search">搜索</view>
+</van-search>
+<view class="wrapper">
+  <articleList list="{{ dataList }}"></articleList>
+</view>
+<van-toast id="van-toast" />

@@ -1,0 +1,64 @@
+/* miniprogram/pages/article/article.wxss */
+.poetry-container {
+}
+
+.poetry-item {
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+  font-size: 32rpx;
+  color: #204051;
+  background: #fff;
+  padding: 10rpx 20rpx;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.poetry-info {
+  display: flex;
+  flex-flow: column;
+}
+
+.poetry-title {
+  font-size: 34rpx;
+  font-weight: bold;
+}
+
+.author {
+  margin-top: 10rpx;
+  margin-bottom: 20rpx;
+  font-size: 28rpx;
+}
+
+.search-wrapper {
+  display: flex;
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.select-custom {
+  width: 100px;
+}
+
+.search-custom {
+  width: calc(100% - 100px);
+}
+
+.search-root {
+  padding: 0 !important;
+  height: 100% !important;
+}
+
+.block {
+  height: 60px;
+}
+
+.loading-wrapper {
+  width: 100%;
+}
+
+.weui-loadmore__tips {
+  z-index: -1;
+}

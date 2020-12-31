@@ -1,0 +1,4 @@
+<view wx:if="{{ dateInfo }}">
+  <van-image width="50" height="50" src="/images/{{dateInfo.AnimalsImg}}.png" />
+</view>
+  

@@ -1,0 +1,1 @@
+<text class="iconfont my-class {{type}}" style="{{size&&'font-size:'+size+'rpx;'}}{{color&&'color:'+color+';'}}" />

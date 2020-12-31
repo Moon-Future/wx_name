@@ -1,0 +1,167 @@
+/* miniprogram/pages/createName/createName.wxss */
+.radio-grp {
+  display: flex;
+}
+
+.radio-label {
+  margin-right: 10px;
+  width: 130rpx;
+}
+
+.name-list {
+  background: #fff;
+}
+
+.name-item {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  padding: 5px 10px;
+}
+
+.word-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10rpx;
+}
+
+.word-attr {
+  font-size: 26rpx;
+}
+
+.source-wrapper {
+  display: flex;
+  flex-flow: column;
+  font-size: 26rpx;
+}
+
+.mean {
+  color: red;
+}
+
+.source {
+  text-align: right;
+}
+
+.name-item + .name-item {
+  border-top: 1px solid #e4e3e3;
+}
+
+.icongrp {
+  display: flex;
+  align-items: center;
+}
+
+.icongrp .icon-copy {
+  margin-right: 10px;
+}
+
+.icongrp .icon-copy, .icongrp .icon-share {
+  font-size: 50rpx;
+  padding: 0;
+  line-height: initial;
+}
+
+.weui-toptips {
+  display: block;
+  background-color: var(--weui-FG-1);
+}
+
+.page__hd, .page__bd {
+  display: flex;
+  justify-content: center;
+  padding: 20rpx 0;
+}
+
+.weui-cells__title {
+  padding-top: 5px !important;
+}
+
+
+
+
+.form {
+  background: #fff;
+}
+
+.form-item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+  border-bottom: 1px solid#eee;
+}
+
+.form-label {
+  width: 200rpx;
+  font-size: 32rpx;
+  color: #999;
+}
+
+.form-input {
+  flex: 1;
+}
+
+.input-placeholder {
+  font-size: 32rpx;
+  color: #999;
+}
+
+.form-radio-group {
+  display: flex;
+}
+
+.radio-wrap {
+  flex-flow: column;
+}
+
+.form-radio {
+  width: 200rpx;
+}
+
+.radio-margin {
+  margin: 16rpx 0;
+}
+
+.date-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+}
+
+.form-info {
+  font-size: 30rpx;
+  color: #999;
+  padding: 10rpx 20rpx;
+}
+
+.form-btn {
+  margin: 20px auto;
+  width: 80% !important;
+  border-radius: 4px !important;
+}
+
+.date-info {
+  font-size: 34rpx;
+  height: 100%;
+  /* background: url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fj.17qq.com%2Farticle%2Fsutsteqqx.html&psig=AOvVaw1x_dRHhYIMrFuKo4LK_WHE&ust=1609487512004000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOjlk7Xe9-0CFQAAAAAdAAAAABAD);
+  background-size: cover; */
+}
+
+.date-info-time {
+  padding: 0 20rpx;
+}
+
+.date-info-item {
+  display: flex;
+  padding: 5rpx 0;
+}
+
+.date-info-label {
+  width: 130rpx;
+  color: #999;
+}
+
+.date-info-text {
+  flex: 1;
+}

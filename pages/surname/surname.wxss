@@ -1,0 +1,6 @@
+.wrapper {
+  padding: 20rpx;
+  text-align: right;
+  font-size: 36rpx;
+  background: #ffffff;
+}
