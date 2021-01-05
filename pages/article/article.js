@@ -101,5 +101,12 @@ Page({
     wx.navigateTo({
       url: `/pages/articleDetail/articleDetail?title=${data.title}&id=${data.id}&tab=${this.data.tab}`
     })
+  },
+
+  onShareAppMessage(res) {
+    return {
+      title: '好名字来自-取名通',
+      path: '/pages/article/article',
+    }
   }
 })

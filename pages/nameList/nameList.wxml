@@ -1,4 +1,36 @@
-<view wx:if="{{ dateInfo }}">
-  <van-image width="50" height="50" src="/images/{{dateInfo.AnimalsImg}}.png" />
+<view class="name-info" wx:if="{{ dateInfo }}">
+  <view class="name-info-left">
+    <van-image width="50" height="50" src="/images/{{dateInfo.AnimalsImg}}.png" />
+    <view class="name-info-date">
+      <text>{{ dateInfo.date }}</text>
+      <text>{{ dateInfo.lunarDate }}({{ dateInfo.IMonthCn + dateInfo.IDayCn }})</text>
+    </view>
+  </view>
+  <view class="name-info-right">
+    <view wx:for="{{ nameInfo }}" wx:key="index">{{ item }}</view>
+    <view>仅供参考</view>
+  </view>
 </view>
-  
+
+<view class="name-list">
+  <view class="name-item" wx:for="{{ nameList }}" wx:key="index" data-index="{{ index }}">
+    <view class="name-wrapper">
+      <view class="name-top">
+        <view class="name">{{ params.surname }}{{ item.name }}</view>
+        <view class="icongrp">
+          <text class="iconfont icon-copy" data-name="{{ item.name }}" bindtap="copyName"></text>
+          <!-- <button class="iconfont icon-share" open-type="share" data-index="{{ index }}" bindtap="clickLike"></button> -->
+        </view>
+      </view>
+      <view class="name-attr" wx:if="{{ item.pronounce }}">
+        【{{ item.pronounce }}】【{{ item.attr }}】
+      </view>
+    </view>
+    <view class="source-wrapper">
+      <rich-text class="source" nodes="{{ item.source }}" space="emsp" wx:if="{{ item.source }}"></rich-text>
+      <view class="source-info" bindtap="readDetail" data-title="{{ item.title }}" data-id="{{ item.id }}">--{{ item.author }}{{ item.dynasty === '' ? '' : '·' }}{{ item.dynasty }} {{ item.title === '' ? '' : '《' + item.title + '》' }}【{{ item.type }}】</view>
+    </view>
+  </view>
+</view>
+
+<van-toast id="van-toast" />

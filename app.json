@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/createName/createName",
     "pages/home/home",
+    "pages/createName/createName",
     "pages/article/article",
     "pages/user/user",
     "pages/articleDetail/articleDetail",
@@ -35,8 +35,8 @@
     "van-popup": "@vant/weapp/popup/index"
   },
   "tabBar": {
-    "color": "#bfbfbf",
-    "selectedColor": "#1afa29",
+    "color": "#333333",
+    "selectedColor": "#1296db",
     "borderStyle": "white",
     "list": [
       {
@@ -46,14 +46,14 @@
         "text": "首页"
       },
       {
-        "selectedIconPath": "images/home_on.png",
-        "iconPath": "images/home.png",
+        "selectedIconPath": "images/name_on.png",
+        "iconPath": "images/name.png",
         "pagePath": "pages/createName/createName",
         "text": "起名"
       },
       {
-        "selectedIconPath": "images/home_on.png",
-        "iconPath": "images/home.png",
+        "selectedIconPath": "images/surname_on.png",
+        "iconPath": "images/surname.png",
         "pagePath": "pages/surname/surname",
         "text": "姓氏起源"
       },

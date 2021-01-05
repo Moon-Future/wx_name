@@ -129,6 +129,10 @@
   flex: 1;
 }
 
+.date-text {
+  margin-top: 20rpx;
+}
+
 .form-info {
   font-size: 30rpx;
   color: #999;
@@ -144,6 +148,7 @@
 .date-info {
   font-size: 34rpx;
   height: 100%;
+  padding: 20rpx 10rpx;
   /* background: url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fj.17qq.com%2Farticle%2Fsutsteqqx.html&psig=AOvVaw1x_dRHhYIMrFuKo4LK_WHE&ust=1609487512004000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOjlk7Xe9-0CFQAAAAAdAAAAABAD);
   background-size: cover; */
 }

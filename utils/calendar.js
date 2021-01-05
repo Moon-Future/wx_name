@@ -177,7 +177,7 @@ const calendar = {
     const result = lunar ? this.lunar2solar(Number(y), Number(m), Number(d)) : this.solar2lunar(Number(y), Number(m), Number(d))
     const hourStems = stemsBranch.getHourStems(result.gzDay[0], Number(h))
     const hourBranch = stemsBranch.getHourBranch(Number(h))
-    result.hour = Number(h)
+    result.hour = h < 10 ? '0' + h : h
     result.gzHour = hourStems + hourBranch
     result.wxYear = this.WuXing[result.gzYear[0]] + this.WuXing[result.gzYear[1]]
     result.wxMonth = this.WuXing[result.gzMonth[0]] + this.WuXing[result.gzMonth[1]]
@@ -645,8 +645,8 @@ const calendar = {
     //该日期所属的星座
     var astro = this.toAstro(m, d);
 
-    var solarDate = y + '-' + m + '-' + d
-    var lunarDate = year + '-' + month + '-' + day
+    var solarDate = y + '-' + (m < 10 ? '0' + m : m) + '-' + (d < 10 ? '0' + d : d)
+    var lunarDate = year + '-' + (month < 10 ? '0' + month : month) + '-' + (day < 10 ? '0' + day : day)
 
     var festival = this.festival
     var lfestival = this.lfestival

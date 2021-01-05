@@ -84,7 +84,21 @@ Page({
     })
   },
 
+  copyName(e) {
+    const name = e.currentTarget.dataset.name
+    wx.setClipboardData({
+      data: name
+    })
+  },
+
   onReachBottom(e) {
     this.getNameList()
   },
+
+  onShareAppMessage(res) {
+    return {
+      title: '好名字来自-取名通',
+      path: '/pages/home/home',
+    }
+  }
 })

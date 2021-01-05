@@ -70,4 +70,11 @@ Page({
     })
     this.getDataList()
   },
+
+  onShareAppMessage(res) {
+    return {
+      title: '好名字来自-取名通',
+      path: '/pages/surname/surname',
+    }
+  }
 })

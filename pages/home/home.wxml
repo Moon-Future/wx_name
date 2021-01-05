@@ -1,5 +1,5 @@
 <view class="name-list {{ visible ? 'name-list-fixed' : '' }}" style="top:{{top}}px">
-  <view class="name-item" wx:for="{{ nameList }}" wx:key="index" data-index="{{ index }}" bindtap="clickItem">
+  <view class="name-item" wx:for="{{ nameList }}" wx:key="index" data-index="{{ index }}">
     <view class="word-wrapper">
       <view>
         <text class="name">{{ formData.surname }}{{ item.word }}</text>

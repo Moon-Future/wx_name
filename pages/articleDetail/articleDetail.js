@@ -34,19 +34,21 @@ Page({
   },
 
   async getContent(title, id, tab) {
-    Toast.loading({ message: '加载中...', forbidClick: true, duration: 3000})
+    Toast.loading({ message: '加载中...', forbidClick: true, duration: 0})
     try {
       const res = await ajax({
         url: 'getArticleFile',
         data: { title, id, tab }
       })
-      let { poetry = {}, article = '' } = res.data
+      let { poetry = {}, article = '' } = res
       article = article.replace(/<img /g, '<img style="max-width:100%;height:auto;display:block;margin:10px 0;"')
       if (article.indexOf('《《《《《-----') === -1) {
         this.setData({
           articleTabs: [],
           tabsFlag: false,
-          content: article
+          content: article,
+          title: title,
+          poetry: poetry
         })
       } else {
         let arr = article.match(/《《《《《-----(.*?)-----》》》》》/g)
@@ -62,20 +64,14 @@ Page({
         this.setData({
           articleTabs: articleTabs,
           tabsFlag: true,
-          content: ''
+          content: '',
+          title: title,
+          poetry: poetry
         })
       }
-      this.setData({
-        title: title,
-        poetry: poetry
-      })
-      wx.nextTick(() => {
-        Toast.clear()
-      })
+      Toast.clear()
     } catch (e) {
-      wx.nextTick(() => {
-        Toast.clear()
-      })
+      Toast.clear()
     }
   },
 
