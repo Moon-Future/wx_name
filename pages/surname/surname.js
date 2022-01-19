@@ -1,5 +1,5 @@
 import { ajax } from '../../utils/http'
-import { formatTime } from '../../utils/util'
+import { formatTime, checkContent } from '../../utils/util'
 import Toast from '../../miniprogram_npm/@vant/weapp/toast/toast'
 Page({
 
@@ -56,18 +56,38 @@ Page({
   },
 
   onChange({ detail }) {
+    console.log('xxxxxxx')
     this.setData({
       value: detail
     })
   },
 
+  async onBlur(e) {
+    this.checking = true
+    const checkFlag = await checkContent(e.detail.value)
+    if (!checkFlag) {
+      wx.showToast({ title: '含有违规文字', icon: 'none' })
+      this.setData({
+        value: ''
+      })
+      return
+    }
+    this.checking = false
+    if (this.searching) {
+      this.search()
+    }
+  },
+
   search() {
+    this.searching = true
+    if (this.checking) return
     this.setData({
       pageNo: 1,
       dataList: [],
       condition: this.data.value,
       count: ''
     })
+    this.searching = false
     this.getDataList()
   },
 

@@ -10,6 +10,7 @@
       placeholder="请输入搜索关键词"
       use-action-slot
       bind:change="onChange"
+      bind:blur="onBlur"
       bind:search="search"
     >
       <view slot="action" bind:tap="search">搜索</view>

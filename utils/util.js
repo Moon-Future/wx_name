@@ -1,3 +1,6 @@
+import { ajax } from './http'
+const app = getApp()
+
 function checkType(val) {
   return Object.prototype.toString.call(val).slice(8, -1)
 }
@@ -71,5 +74,55 @@ export function beforeTime(timestamp) {
     return formatTime(new Date(timestamp), 'MM-dd hh:mm')
   } else {
     return formatTime(new Date(timestamp), 'yyyy-MM-dd hh:mm')
+  }
+}
+
+async function getAccessInfo() {
+  if (app.globalData.accessInfo && Date.now() - app.globalData.accessInfo.time < 7200 * 1000) {
+    return app.globalData.accessInfo
+  }
+  return new Promise((resolve, reject) => {
+    try {
+      wx.login({
+        success: async (res) => {
+          if (res.code) {
+            const result = await ajax({
+              url: 'getAccessToken',
+              data: {
+                code: res.code
+              }
+            })
+            app.globalData.accessInfo = {
+              access_token: result.access_token,
+              openid: result.openid,
+              time: Date.now()
+            }
+            resolve(app.globalData.accessInfo)
+          }
+        }
+      })
+    } catch(e) {
+      reject(e)
+    }
+  })
+}
+
+export async function checkContent(content) {
+  if (content === '') return true
+  const accessInfo = await getAccessInfo()
+  try {
+    const res = await ajax({
+      requestUrl: `https://api.weixin.qq.com/wxa/msg_sec_check?access_token=${accessInfo.access_token}`,
+      method: 'POST',
+      data: {
+        version: 2,
+        openid: accessInfo.openid,
+        scene: 1,
+        content: content
+      }
+    })
+    return res.result && res.result.label === 100
+  } catch (e) {
+    console.log(e)
   }
 }

@@ -1,5 +1,5 @@
 import calendar from '../../utils/calendar'
-import { formatTime } from '../../utils/util'
+import { formatTime, checkContent } from '../../utils/util'
 import Toast from '../../miniprogram_npm/@vant/weapp/toast/toast'
 
 const app = getApp()
@@ -72,7 +72,7 @@ Page({
     app.globalData.dateInfo = dateInfo
   },
 
-  changeRadio(e) {
+  async changeRadio(e) {
     let field = e.currentTarget.dataset.field
     let value = e.detail
     this.setData({
@@ -89,9 +89,17 @@ Page({
     this.birthdayCompute()
   },
 
-  changeInput(e) {
+  async changeInput(e) {
     let field = e.currentTarget.dataset.field
     let value = e.detail.value
+    const checkFlag = await checkContent(value)
+    if (!checkFlag) {
+      wx.showToast({ title: '含有违规文字', icon: 'none' })
+      this.setData({
+        ['formData.' + field]: ''
+      })
+      return
+    }
     this.setData({
       ['formData.' + field]: value
     })

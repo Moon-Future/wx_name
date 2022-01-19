@@ -1,5 +1,6 @@
 // const baseUrl = 'http://192.168.8.209:5555/api/wxName/'
 const baseUrl = 'https://wxproject.cl8023.com/api/wxName/'
+// const baseUrl = 'http://localhost:5555/api/wxName/'
 
 const API = {
   getArticle: baseUrl + 'getArticle',
@@ -8,7 +9,9 @@ const API = {
   getWxArticle: baseUrl + 'getWxArticle',
   getRandArticle: baseUrl + 'getRandArticle',
   getNameList: baseUrl + 'getNameList',
-  getSurnameList: baseUrl + 'getSurnameList'
+  getSurnameList: baseUrl + 'getSurnameList',
+
+  getAccessToken: baseUrl + 'getAccessToken'
 }
 
 export function http(opts) {
@@ -17,11 +20,11 @@ export function http(opts) {
 }
 
 export function ajax(opts) {
-  const { url, data, method } = opts
+  const { url, data, method, requestUrl } = opts
   
   return new Promise((resolve, reject) => {
     wx.request({
-      url: API[url],
+      url: requestUrl || API[url],
       data,
       method: method || 'POST',
       success(res) {

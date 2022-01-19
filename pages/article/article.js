@@ -1,5 +1,6 @@
 // miniprogram/pages/article/article.js
 import { ajax } from '../../utils/http'
+import { checkContent } from '../../utils/util'
 Page({
 
   /**
@@ -85,13 +86,32 @@ Page({
     })
   },
 
+  async onBlur(e) {
+    this.checking = true
+    const checkFlag = await checkContent(e.detail.value)
+    if (!checkFlag) {
+      wx.showToast({ title: '含有违规文字', icon: 'none' })
+      this.setData({
+        value: ''
+      })
+      return
+    }
+    this.checking = false
+    if (this.searching) {
+      this.search()
+    }
+  },
+
   search(e) {
+    this.searching = true
+    if (this.checking) return
     this.setData({
       pageNo: 1,
       articleList: [],
       condition: this.data.value,
       count: ''
     })
+    this.searching = false
     this.getArticle()
   },
 
