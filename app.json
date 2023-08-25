@@ -1,71 +1,14 @@
 {
-  "pages": [
-    "pages/home/home",
-    "pages/createName/createName",
-    "pages/article/article",
-    "pages/user/user",
-    "pages/articleDetail/articleDetail",
-    "pages/nameList/nameList",
-    "pages/surname/surname"
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs"
   ],
-  "window": {
-    "backgroundColor": "#F6F6F6",
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "云开发 QuickStart",
-    "navigationBarTextStyle": "black",
-    "onReachBottomDistance": 300
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle":"black"
   },
-  "usingComponents": {
-    "articleList": "/components/articleList/articleList",
-    "iconfont": "/components/iconfont/iconfont",
-    "van-image": "@vant/weapp/image/index",
-    "van-tag": "@vant/weapp/tag/index",
-    "van-toast": "@vant/weapp/toast/index",
-    "van-search": "@vant/weapp/search/index",
-    "van-dropdown-menu": "@vant/weapp/dropdown-menu/index",
-    "van-dropdown-item": "@vant/weapp/dropdown-item/index",
-    "van-empty": "@vant/weapp/empty/index",
-    "van-dialog": "@vant/weapp/dialog/index",
-    "van-field": "@vant/weapp/field/index",
-    "van-radio": "@vant/weapp/radio/index",
-    "van-radio-group": "@vant/weapp/radio-group/index",
-    "van-button": "@vant/weapp/button/index",
-    "van-datetime-picker": "@vant/weapp/datetime-picker/index",
-    "van-popup": "@vant/weapp/popup/index",
-    "van-tab": "@vant/weapp/tab/index",
-    "van-tabs": "@vant/weapp/tabs/index"
-  },
-  "tabBar": {
-    "color": "#333333",
-    "selectedColor": "#1296db",
-    "borderStyle": "white",
-    "list": [
-      {
-        "selectedIconPath": "images/home_on.png",
-        "iconPath": "images/home.png",
-        "pagePath": "pages/home/home",
-        "text": "首页"
-      },
-      {
-        "selectedIconPath": "images/name_on.png",
-        "iconPath": "images/name.png",
-        "pagePath": "pages/createName/createName",
-        "text": "起名"
-      },
-      {
-        "selectedIconPath": "images/surname_on.png",
-        "iconPath": "images/surname.png",
-        "pagePath": "pages/surname/surname",
-        "text": "姓氏起源"
-      },
-      {
-        "selectedIconPath": "images/article_on.png",
-        "iconPath": "images/article.png",
-        "pagePath": "pages/article/article",
-        "text": "诗文"
-      }
-    ]
-  },
+  "style": "v2",
   "sitemapLocation": "sitemap.json"
 }

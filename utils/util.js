@@ -1,128 +1,19 @@
-import { ajax } from './http'
-const app = getApp()
+const formatTime = date => {
+  const year = date.getFullYear()
+  const month = date.getMonth() + 1
+  const day = date.getDate()
+  const hour = date.getHours()
+  const minute = date.getMinutes()
+  const second = date.getSeconds()
 
-function checkType(val) {
-  return Object.prototype.toString.call(val).slice(8, -1)
+  return `${[year, month, day].map(formatNumber).join('/')} ${[hour, minute, second].map(formatNumber).join(':')}`
 }
 
-// 格式化时间戳
-export function formatTime(date, format) {
-  date = typeof date === 'number' ? new Date(date) : date
-  let o = {
-    'M+': date.getMonth() + 1,
-    'd+': date.getDate(),
-    'h+': date.getHours(),
-    'm+': date.getMinutes(),
-    's+': date.getSeconds()
-  }
-  if (/(y+)/i.test(format)) {
-    format = format.replace(RegExp.$1, (date.getFullYear() + '').substr(4 - RegExp.$1.length))
-  }
-  for (let k in o) {
-    if (new RegExp('(' + k + ')').test(format)) {
-      format = format.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k] : ('00' + o[k]).substr(('' + o[k]).length))
-    }
-  }
-  return format
+const formatNumber = n => {
+  n = n.toString()
+  return n[1] ? n : `0${n}`
 }
 
-// 节流函数
-export function throttle(func, wait) {
-  let timeout
-  return function() {
-    let context = this
-    let args = arguments
-    if (!timeout) {
-      timeout = setTimeout(() => {
-        timeout = null
-        func.apply(context, args)
-      }, wait)
-    }
-  }
-}
-
-export function deepClone(obj) {
-  if (typeof obj !== 'object') {
-    return obj
-  }
-  let ret = checkType(obj) === 'Object' ? {} : []
-  for (let i in obj) {
-    if (Object.prototype.hasOwnProperty.call(obj, i)) {
-      if (checkType(obj[i]) === 'Object' || checkType(obj[i]) === 'Array') {
-        ret[i] = deepClone(obj[i])
-      } else {
-        ret[i] = obj[i]
-      }
-    }
-  }
-  return ret
-}
-
-export function beforeTime(timestamp) {
-  let diff = Date.now() - timestamp
-  let seconds = diff / 1000
-  let minutes = Math.floor(seconds / 60)
-  let hours = Math.floor(minutes / 60)
-  let days = Math.floor(hours / 24)
-  if (minutes <= 0) {
-    return '刚刚'
-  } else if (hours <= 0) {
-    return `${minutes} 分钟前`
-  } else if (days < 1) {
-    return `${hours} 小时 ${minutes % 60} 分钟前`
-  } else if (new Date(timestamp).getFullYear() === new Date().getFullYear()) {
-    return formatTime(new Date(timestamp), 'MM-dd hh:mm')
-  } else {
-    return formatTime(new Date(timestamp), 'yyyy-MM-dd hh:mm')
-  }
-}
-
-async function getAccessInfo() {
-  if (app.globalData.accessInfo && Date.now() - app.globalData.accessInfo.time < 7200 * 1000) {
-    return app.globalData.accessInfo
-  }
-  return new Promise((resolve, reject) => {
-    try {
-      wx.login({
-        success: async (res) => {
-          if (res.code) {
-            const result = await ajax({
-              url: 'getAccessToken',
-              data: {
-                code: res.code
-              }
-            })
-            app.globalData.accessInfo = {
-              access_token: result.access_token,
-              openid: result.openid,
-              time: Date.now()
-            }
-            resolve(app.globalData.accessInfo)
-          }
-        }
-      })
-    } catch(e) {
-      reject(e)
-    }
-  })
-}
-
-export async function checkContent(content) {
-  if (content === '') return true
-  const accessInfo = await getAccessInfo()
-  try {
-    const res = await ajax({
-      requestUrl: `https://api.weixin.qq.com/wxa/msg_sec_check?access_token=${accessInfo.access_token}`,
-      method: 'POST',
-      data: {
-        version: 2,
-        openid: accessInfo.openid,
-        scene: 1,
-        content: content
-      }
-    })
-    return res.result && res.result.label === 100
-  } catch (e) {
-    console.log(e)
-  }
+module.exports = {
+  formatTime
 }
