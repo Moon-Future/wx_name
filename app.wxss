@@ -1,4 +1,5 @@
-/**app.wxss**/
+@import 'windi.wxss';
+
 .container {
   height: 100%;
   display: flex;
